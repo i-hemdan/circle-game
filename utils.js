@@ -19,3 +19,20 @@ function generateCircle(maxRadius){
     var y = random(height);
     return new gameCircle(x,y,r,0);
 }
+
+//returns an array of indeces of collided circles
+function checkCircleCollision(firstCircle, restCircleArray){
+    var collided = [];
+    var x1 = firstCircle.position_x;
+    var y1 = firstCircle.position_y;
+    for(let i = 0; i < restCircleArray.length; i++){
+        var x2 = restCircleArray[i].position_x;
+        var y2 = restCircleArray[i].position_y;
+
+        if( (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) <= (firstCircle.radius+restCircleArray[i].radius)*(firstCircle.radius+restCircleArray[i].radius) ){
+            collided.push(i);
+        }
+    }
+
+    return collided;
+}

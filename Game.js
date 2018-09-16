@@ -3,6 +3,7 @@
 var genTimer = new circleGenerationTimer(1000);
 var playerCircle = new gameCircle(10,10,20,5);
 var circleFood = [];
+var radiusIncrement = 2;
 
 function setup() {
     createCanvas(640,480);
@@ -23,5 +24,11 @@ function draw() {
         for(let i = 0; i < circleFood.length; i++){
             ellipse(circleFood[i].position_x, circleFood[i].position_y, circleFood[i].radius*2, circleFood[i].radius*2);
         }
+        var collidedIndeces = checkCircleCollision(playerCircle, circleFood);
+        for(let i = 0; i < collidedIndeces.length; i++){
+            playerCircle.radius += radiusIncrement;
+            circleFood.splice(collidedIndeces[i], 1);
+        }
     }
+    
 }
