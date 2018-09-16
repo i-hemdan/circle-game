@@ -1,15 +1,6 @@
 
 
-var gameCircle = function(position_x,position_y,radius, speed){
-    this.speed = speed;
-    this.position_x = position_x;
-    this.position_y = position_y;
-    this.radius = radius;
-}
-gameCircle.prototype.move = function(x,y){
-    this.position_x += x;
-    this.position_y += y;
-}
+
 
 function handleGameInput(circle){
     if(keyIsDown(LEFT_ARROW)){
@@ -33,17 +24,7 @@ function generateCircle(maxRadius){
     return new gameCircle(x,y,r,0);
 }
 
-function circleGenerationTimer(interval){
-    this.baseInterval = interval;
-    this.curInterval = interval;
-}
-circleGenerationTimer.prototype.elapse = function(){
-    if(millis() > this.curInterval) {
-        this.curInterval += this.baseInterval;
-        return true;
-    }
-    return false;
-}
+
 var genTimer = new circleGenerationTimer(1000);
 var playerCircle = new gameCircle(10,10,20,5);
 var circleFood = [];
