@@ -12,7 +12,7 @@ var playerCircle = new gameCircle(10,10,20,5);
 
 
 /**
- * @type {Array<gameCircle>}
+ * @type {Array<gameCircle>} - array of gameCircles used as food for the player gameCircle
  */
 var circleFood = [];
 
