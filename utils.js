@@ -67,7 +67,20 @@ function checkCircleCollision(firstCircle, restCircleArray){
 }
 
 function drawPlayerCircle(){
+    /**
+     * p5.js function, 
+     * sets the "pen" to black to prepare for drawing
+     * really should be a variable in the gameCircle object
+     */
     fill(0);
+
+    /**
+     * p5.js function,
+     * draws an ellips with the current fill color
+     * in this case, parameters are set to the corresponding playerCircle variabls
+     * we used radius when defining size of gameCircles so we have to multiply by 2 to get
+     * diameter which is what p5.js uses, I think.
+     */
     ellipse(playerCircle.position_x, playerCircle.position_y, playerCircle.radius*2,playerCircle.radius*2);
 }
 
