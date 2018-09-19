@@ -65,3 +65,31 @@ function checkCircleCollision(firstCircle, restCircleArray){
 
     return collided;
 }
+
+function drawPlayerCircle(){
+    fill(0);
+    ellipse(playerCircle.position_x, playerCircle.position_y, playerCircle.radius*2,playerCircle.radius*2);
+}
+
+function drawFoodCircles(circleFood){
+    //sets "pen" to red to draw the food circles
+    fill(255,0,0);
+    if(circleFood.length > 0){
+        //loop through circleFood and draw circles. similar to when the player circle was drawn above
+        for(let i = 0; i < circleFood.length; i++){
+            ellipse(circleFood[i].position_x, circleFood[i].position_y, circleFood[i].radius*2, circleFood[i].radius*2);
+        }
+        
+    }
+}
+
+function handleCollision(playerCircle, circleFood){
+    var collidedIndeces = checkCircleCollision(playerCircle, circleFood);
+    //loop through collidedIndeces
+    for(let i = 0; i < collidedIndeces.length; i++){
+        playerCircle.radius += radiusIncrement;
+
+        //built in js function, in this case removes 1 item at index provided by collidedIndeces
+        circleFood.splice(collidedIndeces[i], 1);
+    }
+}
