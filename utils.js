@@ -65,3 +65,44 @@ function checkCircleCollision(firstCircle, restCircleArray){
 
     return collided;
 }
+
+function drawPlayerCircle(){
+    /**
+     * p5.js function, 
+     * sets the "pen" to black to prepare for drawing
+     * really should be a variable in the gameCircle object
+     */
+    fill(0);
+
+    /**
+     * p5.js function,
+     * draws an ellips with the current fill color
+     * in this case, parameters are set to the corresponding playerCircle variabls
+     * we used radius when defining size of gameCircles so we have to multiply by 2 to get
+     * diameter which is what p5.js uses, I think.
+     */
+    ellipse(playerCircle.position_x, playerCircle.position_y, playerCircle.radius*2,playerCircle.radius*2);
+}
+
+function drawFoodCircles(circleFood){
+    //sets "pen" to red to draw the food circles
+    fill(255,0,0);
+    if(circleFood.length > 0){
+        //loop through circleFood and draw circles. similar to when the player circle was drawn above
+        for(let i = 0; i < circleFood.length; i++){
+            ellipse(circleFood[i].position_x, circleFood[i].position_y, circleFood[i].radius*2, circleFood[i].radius*2);
+        }
+        
+    }
+}
+
+function handleCollision(playerCircle, circleFood){
+    var collidedIndeces = checkCircleCollision(playerCircle, circleFood);
+    //loop through collidedIndeces
+    for(let i = 0; i < collidedIndeces.length; i++){
+        playerCircle.radius += radiusIncrement;
+
+        //built in js function, in this case removes 1 item at index provided by collidedIndeces
+        circleFood.splice(collidedIndeces[i], 1);
+    }
+}
