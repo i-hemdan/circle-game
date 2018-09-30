@@ -1,7 +1,7 @@
 
 /**
  * 
- * @param {gameCircle} circle - uses circle.move to move circle by circle.speed in relevant 
+ * @param {GameCircle} circle - uses circle.move to move circle by circle.speed in relevant 
  * direction when arrow keys are pressed.
  */
 function handleGameInput(circle){
@@ -36,7 +36,7 @@ function generateCircle(maxRadius){
 
 /**
  * 
- * @param {gameCircle} firstCircle the gameCircle to test against the gameCircles in restCircleArray
+ * @param {GameCircle} firstCircle the gameCircle to test against the gameCircles in restCircleArray
  * @param {Array<gameCircle>} restCircleArray the array of gameCircles tested against firstCircle
  * @return {Array<number>} - returns an array of indeces of gameCircles within restCircleArray
  *  firstCircle collided with to be used to index the 
