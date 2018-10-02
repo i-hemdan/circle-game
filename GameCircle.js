@@ -20,11 +20,11 @@ class GameCircle{
     }
     render(){
         this.offScreenCanvas = document.createElement("canvas");
-        this.offScreenCanvas.width = this.radius*2+1;
-        this.offScreenCanvas.height = this.radius*2+1
+        this.offScreenCanvas.width = this.radius*2+2;
+        this.offScreenCanvas.height = this.radius*2+2
         var ctx = this.offScreenCanvas.getContext("2d");
         ctx.beginPath();
-        ctx.arc(this.radius, this.radius, this.radius, 0, 2*Math.PI);
+        ctx.arc(this.radius+1, this.radius+1, this.radius, 0, 2*Math.PI);
         ctx.fillStyle = this.color;
         ctx.fill();
     }
