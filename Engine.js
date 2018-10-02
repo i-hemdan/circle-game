@@ -49,6 +49,22 @@ class Engine {
     addCircle(circle){
         this.circles.push(circle);
         circle.engine = this;
+        this.reIndexCircles();
+    }
+    /**
+     * @param {gameCircle} circle circle to remove from queue
+     */
+    removeCircle(circle){
+        this.circles.splice(circle.index, 1);
+        this.reIndexCircles();
+    }
+    /**
+     * reassigns the indexes of the circles in the circles array
+     */
+    reIndexCircles(){
+        for(var i in this.circles){
+            this.circles[i].index = i;
+        }
     }
     /**
      * @param {GameCircle} circle
@@ -72,16 +88,16 @@ class Engine {
         ctx.fillStyle = Engine.RGB(200,200,200);
         ctx.fillRect(0,0,this.canvas.width,this.canvas.height);
         
-        for (var c of this.circles){
-            c.onUpdate();
-            this.drawCircle(c);
-            if(c.checksCollision == true){
-                for(var c2 of this.circles){
-                    if(c === c2){
+        for (var circle1 of this.circles){
+            circle1.onUpdate();
+            this.drawCircle(circle1);
+            if(circle1.checksCollision == true){
+                for(var circle2 of this.circles){
+                    if(circle1 === circle2){
                         continue;
                     }else{
-                        if(this.Collides(c, c2)){
-                            c.onCollide(c2);
+                        if(this.Collides(circle1, circle2)){
+                            circle1.onCollide(circle2);
                         }
                     }
                 }
@@ -94,7 +110,7 @@ class Engine {
         ctx.drawImage(this.ui_canvas, 0,0);
 
     }
-    //implemented by game
+    //implemented by Game.js
     updateUI(){}
     /**
      *Constructs a css rgb string like 'rgb(0,0,0)'
@@ -112,8 +128,15 @@ class Engine {
      * @param {GameCircle} circleB circle to check against
      */
     Collides(circleA, circleB){
-        var x1 = circleA.x_position; var y1 = circleA.y_position;
-        var x2 = circleB.x_position; var y2 = circleB.y_position;
+        var radA = circleA.radius;
+        var x1 = circleA.position_x + radA;
+        var y1 = circleA.position_y + radA;
+
+        
+        var radB = circleB.radius;
+        var x2 = circleB.position_x + radB;
+        var y2 = circleB.position_y + radB;
+
 
         if(
             (x2-x1) * (x2-x1) + (y2-y1)*(y2-y1) 

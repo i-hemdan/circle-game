@@ -20,8 +20,8 @@ class GameCircle{
     }
     render(){
         this.offScreenCanvas = document.createElement("canvas");
-        this.offScreenCanvas.width = this.radius*2;
-        this.offScreenCanvas.height = this.radius*2
+        this.offScreenCanvas.width = this.radius*2+1;
+        this.offScreenCanvas.height = this.radius*2+1
         var ctx = this.offScreenCanvas.getContext("2d");
         ctx.beginPath();
         ctx.arc(this.radius, this.radius, this.radius, 0, 2*Math.PI);
@@ -37,7 +37,7 @@ class GameCircle{
         this.position_x += x;
         this.position_y += y;
     }
-
+    
     onUpdate(){}
 
     onCollide(other){}

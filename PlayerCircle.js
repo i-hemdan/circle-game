@@ -1,7 +1,7 @@
 
 class PlayerCircle extends GameCircle{
     constructor(x_position, y_position){
-        super(x_position, y_position, 10, 2, Engine.RGB(0,0,0), true);
+        super(x_position, y_position, 10, 1, Engine.RGB(0,0,0), true);
     }
 
     /**
@@ -11,8 +11,18 @@ class PlayerCircle extends GameCircle{
     onCollide(other){
         if(other.radius > this.radius){ 
             this.radius--;
+            this.render();
         }else{
+            console.log("hit");
             this.radius++;
+            this.engine.removeCircle(other);
+            this.render();
+        }
+
+        if(this.radius <= 0){
+            this.position_x = -10;
+            this.position_y = -10;
+            alert("you fuckin lost!");
         }
     }
     onUpdate(){
