@@ -16,20 +16,21 @@ class PlayerCircle extends GameCircle{
         }
     }
     onUpdate(){
+        
         if(this.engine){
             
             let e = this.engine;
             if(e.keysDown["KeyA"]){
-                this.move(-this.speed, 0);
+                if(this.position_x > 0) this.move(-this.speed, 0);
             }
             if(e.keysDown["KeyD"]){
-                this.move(this.speed, 0);
+                if(this.position_x + 2 * this.radius < e.width) this.move(this.speed, 0);
             }
             if(e.keysDown["KeyW"]){
-                this.move(0, -this.speed);
+                if(this.position_y > 0)this.move(0, -this.speed);
             }
             if(e.keysDown["KeyS"]){
-                this.move(0, this.speed);
+                if(this.position_y + 2 * this.radius < e.height)this.move(0, this.speed);
             }
         }
     }
