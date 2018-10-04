@@ -10,7 +10,7 @@ const enemyColor = Engine.RGB(255,0,0);
 window.setInterval(
     function(){
         gameInstance.addCircle(
-            new GameCircle(
+            new GameObject(
                 Math.random() * gameInstance.width,
                 Math.random() * gameInstance.height,
                 Math.random() * 30,

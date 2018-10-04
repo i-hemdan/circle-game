@@ -1,6 +1,6 @@
 
 
-class GameCircle{
+class GameObject{
     /**
      * 
      * @param {number} position_x 

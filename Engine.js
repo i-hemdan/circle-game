@@ -44,7 +44,7 @@ class Engine {
     }
 
     /**
-     * @param {gameCircle} circle circle to add to the update queue
+     * @param {GameObject} circle circle to add to the update queue
      */
     addCircle(circle){
         this.circles.push(circle);
@@ -52,7 +52,7 @@ class Engine {
         this.reIndexCircles();
     }
     /**
-     * @param {gameCircle} circle circle to remove from queue
+     * @param {GameObject} circle circle to remove from queue
      */
     removeCircle(circle){
         this.circles.splice(circle.index, 1);
@@ -67,7 +67,7 @@ class Engine {
         }
     }
     /**
-     * @param {GameCircle} circle
+     * @param {GameObject} circle
      */
     drawCircle(circle){
         if(circle.offScreenCanvas){
@@ -124,8 +124,8 @@ class Engine {
     }
     /**
      * 
-     * @param {GameCircle} circleA first circle to check with, if collision happens the onCollide function  is called on this circle
-     * @param {GameCircle} circleB circle to check against
+     * @param {GameObject} circleA first circle to check with, if collision happens the onCollide function  is called on this circle
+     * @param {GameObject} circleB circle to check against
      */
     Collides(circleA, circleB){
         var radA = circleA.radius;

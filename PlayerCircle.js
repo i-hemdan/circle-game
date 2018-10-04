@@ -1,5 +1,5 @@
 
-class PlayerCircle extends GameCircle{
+class PlayerCircle extends GameObject{
     constructor(x_position, y_position){
         super(x_position, y_position, 10, 1, Engine.RGB(0,0,0), true);
     }
