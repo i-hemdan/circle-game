@@ -1,4 +1,5 @@
 import {GameObject} from "./GameObject.js";
+import {Engine} from "./Engine.js";
 
 export class PlayerCircle extends GameObject{
     constructor(x_position, y_position){
