@@ -73,7 +73,7 @@ export class Engine {
     drawCircle(circle){
         if(circle.offScreenCanvas){
             var ctxTo = this.canvas.getContext("2d");
-            ctxTo.drawImage(circle.offScreenCanvas, circle.x_position, circle.y_position);
+            ctxTo.drawImage(circle.offScreenCanvas, circle.position.x, circle.position.y);
             
         }else{
             console.log("didn't have a renderable");
@@ -130,13 +130,13 @@ export class Engine {
      */
     Collides(circleA, circleB){
         var radA = circleA.radius;
-        var x1 = circleA.x_position + radA;
-        var y1 = circleA.y_position + radA;
+        var x1 = circleA.position.x + radA;
+        var y1 = circleA.position.y + radA;
 
         
         var radB = circleB.radius;
-        var x2 = circleB.x_position + radB;
-        var y2 = circleB.y_position + radB;
+        var x2 = circleB.position.x + radB;
+        var y2 = circleB.position.y + radB;
 
 
         if(
@@ -160,7 +160,7 @@ export class Engine {
         document.body.addEventListener("keydown", function(event){
             self.keysPressed[event.key] = true;
             self.keysDown[event.key] = true;
-        })
+        });
         
     }
 }

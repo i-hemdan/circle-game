@@ -22,8 +22,8 @@ export class PlayerCircle extends GameObject{
         }
 
         if(this.radius <= 0){
-            this.position_x = -10;
-            this.position_y = -10;
+            this.position.x = -10;
+            this.position.y = -10;
             alert("you fuckin lost!");
         }
     }
@@ -33,16 +33,17 @@ export class PlayerCircle extends GameObject{
             
             let e = this.engine;
             if(e.keysDown["a"]){
-                if(this.position_x > 0) this.move(-this.speed, 0);
+                if(this.position.x > 0) this.move(-this.speed, 0);
+                console.log("a pressed");
             }
             if(e.keysDown["d"]){
-                if(this.position_x + 2 * this.radius < e.width) this.move(this.speed, 0);
+                if(this.position.x + 2 * this.radius < e.width) this.move(this.speed, 0);
             }
             if(e.keysDown["w"]){
-                if(this.position_y > 0)this.move(0, -this.speed);
+                if(this.position.y > 0)this.move(0, -this.speed);
             }
             if(e.keysDown["s"]){
-                if(this.position_y + 2 * this.radius < e.height)this.move(0, this.speed);
+                if(this.position.y + 2 * this.radius < e.height)this.move(0, this.speed);
             }
         }
     }

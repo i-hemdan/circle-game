@@ -30,12 +30,12 @@ export class GameObject{
     }
     /**
      * 
-     * @param {number} x - how much to increment x_position 
-     * @param {number} y - how much to increment y_position
+     * @param {number} x - how much to increment x position 
+     * @param {number} y - how much to increment y position
      */
     move(x,y){
-        this.x_position += x;
-        this.y_position += y;
+        this.position.x += x;
+        this.position.y += y;
     }
     
     onUpdate(){}
