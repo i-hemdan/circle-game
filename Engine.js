@@ -153,12 +153,12 @@ class Engine {
     initInputHandler(){
         let self = this;
         document.body.addEventListener("keyup", function(event){
-            self.keysUp[event.code] = true;
-            self.keysDown[event.code] = false;
+            self.keysUp[event.key] = true;
+            self.keysDown[event.key] = false;
         });
         document.body.addEventListener("keydown", function(event){
-            self.keysPressed[event.code] = true;
-            self.keysDown[event.code] = true;
+            self.keysPressed[event.key] = true;
+            self.keysDown[event.key] = true;
         })
         
     }
