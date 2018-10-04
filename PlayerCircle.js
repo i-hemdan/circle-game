@@ -6,7 +6,7 @@ class PlayerCircle extends GameObject{
 
     /**
      * 
-     * @param {GameCircle} other the circle collided with
+     * @param {GameObject} other the circle collided with
      */
     onCollide(other){
         if(other.radius > this.radius){ 
