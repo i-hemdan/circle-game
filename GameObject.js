@@ -1,5 +1,6 @@
 import {Point} from "./Geom.js";
 
+
 export class GameObject{
     /**
      * 
