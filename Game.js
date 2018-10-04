@@ -1,5 +1,5 @@
 
-
+import  {Point, Rectangle}  from "Geom.js";
 
 let gameInstance = new Engine(800, 600,60);
 let playerCircle = new PlayerCircle(10,10);
@@ -29,3 +29,7 @@ gameInstance.updateUI = function(){
     
     ctx.fillText("SCORE:", 10, 40);
 }
+
+var p1 = new Point(1,2);
+var box = new Rectangle(1,2,3,4);
+console.log(p1.x + " " + p1.y + " " + " " + box.x, + " " + box.y + " " + box.width + " " + box.height);
