@@ -1,5 +1,6 @@
 
-import  {Point, Rectangle}  from "Geom.js";
+import {Engine} from "./Engine.js";
+import {PlayerCircle} from "./PlayerCircle.js";
 
 let gameInstance = new Engine(800, 600,60);
 let playerCircle = new PlayerCircle(10,10);

@@ -1,19 +1,18 @@
+import {Point} from "./Geom.js";
 
-
-class GameObject{
+export class GameObject{
     /**
      * 
-     * @param {number} position_x 
-     * @param {number} position_y 
+     * @param {number} x_position 
+     * @param {number} y_position 
      * @param {number} radius
      * @param {number} speed
      * @param {string} color the rgb color in format 'rgb(0,0,0)'
      * @param {boolean} checksCollision if this circle responds to collision
      */
-    constructor(position_x, position_y, radius, speed, color, checksCollision=false){
+    constructor(x_position, y_position, radius, speed, color, checksCollision=false){
         this.speed = speed;
-        this.position_x = position_x;
-        this.position_y = position_y;
+        this.position = new Point(x_position,y_position);
         this.radius = radius;
         this.color = color;
         this.checksCollision = checksCollision;
@@ -30,12 +29,12 @@ class GameObject{
     }
     /**
      * 
-     * @param {number} x - how much to increment position_x 
-     * @param {number} y - how much to increment position_y
+     * @param {number} x - how much to increment x_position 
+     * @param {number} y - how much to increment y_position
      */
     move(x,y){
-        this.position_x += x;
-        this.position_y += y;
+        this.x_position += x;
+        this.y_position += y;
     }
     
     onUpdate(){}

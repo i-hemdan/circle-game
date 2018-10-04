@@ -1,5 +1,6 @@
+import {GameObject} from "./GameObject.js";
 
-class PlayerCircle extends GameObject{
+export class PlayerCircle extends GameObject{
     constructor(x_position, y_position){
         super(x_position, y_position, 10, 1, Engine.RGB(0,0,0), true);
     }

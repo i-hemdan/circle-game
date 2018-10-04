@@ -1,6 +1,7 @@
+import {GameObject} from "./GameObject.js";
 
 
-class Engine {
+export class Engine {
 
     /**
      * 
@@ -72,7 +73,7 @@ class Engine {
     drawCircle(circle){
         if(circle.offScreenCanvas){
             var ctxTo = this.canvas.getContext("2d");
-            ctxTo.drawImage(circle.offScreenCanvas, circle.position_x, circle.position_y);
+            ctxTo.drawImage(circle.offScreenCanvas, circle.x_position, circle.y_position);
             
         }else{
             console.log("didn't have a renderable");
@@ -129,13 +130,13 @@ class Engine {
      */
     Collides(circleA, circleB){
         var radA = circleA.radius;
-        var x1 = circleA.position_x + radA;
-        var y1 = circleA.position_y + radA;
+        var x1 = circleA.x_position + radA;
+        var y1 = circleA.y_position + radA;
 
         
         var radB = circleB.radius;
-        var x2 = circleB.position_x + radB;
-        var y2 = circleB.position_y + radB;
+        var x2 = circleB.x_position + radB;
+        var y2 = circleB.y_position + radB;
 
 
         if(
