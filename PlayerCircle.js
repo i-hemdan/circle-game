@@ -24,7 +24,7 @@ export class PlayerCircle extends GameObject{
         if(this.radius <= 0){
             this.position.x = -10;
             this.position.y = -10;
-            alert("you fuckin lost!");
+            alert("you lost!");
         }
     }
     onUpdate(){
