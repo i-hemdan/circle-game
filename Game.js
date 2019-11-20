@@ -29,6 +29,4 @@ gameInstance.updateUI = function(){
     ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
     ctx.fillStyle = Engine.RGB(0,0,0);
     ctx.font = "bold 40px Arial";
-    
-    ctx.fillText("SCORE:", 10, 40);
 }
